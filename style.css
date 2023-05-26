@@ -1,0 +1,360 @@
+/* CSS Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+body {
+  min-height: 100vh;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
+
+/*End of CSS Reset */
+
+:root {
+  /* ## Colors */
+
+  /* ### Primary */
+
+  --bright-blue: hsl(220, 98%, 61%);
+  --check-background: linear-gradient (hsl(192, 100%, 67%) to hsl(280, 87%, 65%));
+
+  /* ### Neutral */
+
+  /* ### Light Theme */
+
+  --very-light-gray: hsl(0, 0%, 98%);
+  --very-light-grayish-blue: hsl(236, 33%, 92%);
+  --light-grayish-blue: hsl(233, 11%, 84%);
+  --dark-grayish-blue: hsl(236, 9%, 61%);
+  --very-dark-grayish-blue: hsl(235, 19%, 35%);
+
+  /* ## Typography */
+
+  --fs: 18px;
+  --ff: "Josefin Sans", sans-serif;
+  --fw-400: 400;
+  --fw-700: 700;
+}
+
+body {
+  font-family: var(--ff);
+  font-size: var(--fs);
+  background-color: var(--very-light-grayish-blue);
+}
+
+body.dark {
+  background-color: var(--very-dark-blue);
+}
+
+header {
+  background: url(./images/bg-mobile-light.jpg) no-repeat;
+  background-size: cover;
+  padding: 2.7rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  /* gap: 2.5rem; */
+}
+
+header.dark {
+  background: url(./images/bg-mobile-dark.jpg) no-repeat;
+  background-size: cover;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+h1 {
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  letter-spacing: 12px;
+  font-weight: var(--fw-700);
+  color: #fff;
+}
+
+.theme {
+  cursor: pointer;
+}
+
+.todo-input {
+  /* gap: 0.7rem; */
+  font-size: 1rem;
+  display: flex;
+  position: relative;
+}
+
+.todo-input input {
+  border: none;
+  /* background: none; */
+  background-color: var(--very-light-gray);
+  padding: 1.2rem;
+  padding-left: 3rem;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  width: 100%;
+  caret-color: var(--bright-blue);
+}
+
+.todo-input input.dark {
+  color: var(--very-dark-grayish-blue);
+}
+
+.todo-input button {
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  outline: none;
+  border: 1px solid var(--light-grayish-blue);
+  background: none;
+  position: absolute;
+  align-self: center;
+  top: 15px;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.todo-input input:focus {
+  border: none;
+  outline: none;
+}
+
+main {
+  padding: 0 1.5rem;
+}
+
+.todo-list-wrapper {
+  background-color: var(--very-light-gray);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 5px;
+  margin-top: -1.5rem;
+  padding-top: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+ul li {
+  list-style: none;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  font-size: 1rem;
+  color: var(--very-dark-grayish-blue);
+  /* font-weight: 700; */
+}
+
+.todo-list li {
+  /* width: 100%; */
+  border-bottom: 1px solid var(--light-grayish-blue);
+  padding: 0 1.2rem;
+  padding-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-list input {
+  -webkit-appearance: none;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  outline: none;
+  border: 1px solid var(--light-grayish-blue);
+  background: none;
+  cursor: pointer;
+}
+
+.todo-list input:hover {
+  box-shadow: 0 0 0 0.5px hsl(192, 100%, 67%), 0 0 0 1px hsl(280, 87%, 65%);
+  border-color: transparent;
+}
+
+.todo-list input:checked {
+  background: url(images/icon-check.svg), linear-gradient(to bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.todo-list .text {
+  /* margin-top: 1rem; */
+}
+
+.text-id {
+  display: none;
+}
+
+label {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.remove {
+  cursor: pointer;
+}
+
+.todo-list input:checked ~ .text {
+  text-decoration: line-through;
+  color: var(--light-grayish-blue);
+}
+
+.todo-details {
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem;
+  /* color: var(--dark-grayish-blue); */
+  color: var(--dark-grayish-blue);
+  /* font-weight: var(--fw-700); */
+  position: relative;
+}
+
+.todo-details button {
+  text-decoration: none;
+  color: var(--dark-grayish-blue);
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.todo-details button:hover {
+  color: var(--very-dark-grayish-blue);
+}
+
+.todo-filter {
+  display: flex;
+  justify-content: center;
+  /* gap: 1rem; */
+  border-radius: 5px;
+  background-color: var(--very-light-gray);
+  padding: 1rem;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  position: absolute;
+  top: 4.5rem;
+  margin-bottom: 2rem;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.todo-filter label {
+  display: flex;
+  align-items: center;
+}
+
+.todo-filter input {
+  opacity: 0;
+}
+
+.todo-filter label span:hover {
+  color: var(--very-dark-grayish-blue);
+}
+
+.todo-filter input[type="radio"]:checked ~ span {
+  color: hsl(220, 98%, 61%);
+}
+
+.note {
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 6rem;
+  color: var(--dark-grayish-blue);
+  font-size: 1rem;
+}
+
+/* Responsive */
+
+@media (min-width: 767px) {
+  main {
+    padding: unset;
+    max-width: 35rem;
+    margin: 0 auto;
+  }
+  header {
+    background: url(./images/bg-desktop-light.jpg) no-repeat;
+    padding: 3.7rem 1.5rem;
+  }
+
+  header.dark {
+    background: url(./images/bg-desktop-dark.jpg) no-repeat;
+  }
+
+  .todo-wrapper {
+    max-width: 35rem;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .todo-list-wrapper {
+    margin-top: -2.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .todo-filter.desktop {
+    background-color: unset;
+    box-shadow: initial;
+    margin-bottom: initial;
+    position: initial;
+    padding: initial;
+  }
+
+  .note {
+    margin-top: 3rem;
+  }
+}
+
+/* Dark Theme */
+html.dark {
+  --very-light-gray: hsl(235, 24%, 19%);
+  --very-light-grayish-blue: hsl(236, 33%, 92%);
+  --light-grayish-blue: hsl(233, 14%, 35%);
+  --dark-grayish-blue: hsl(234, 11%, 52%);
+  --very-dark-grayish-blue: hsl(234, 39%, 85%);
+  --very-dark-blue: hsl(235, 21%, 11%);
+
+  /* - Very Dark Blue: hsl(235, 21%, 11%)
+  - Very Dark Desaturated Blue: hsl(235, 24%, 19%)
+  - Light Grayish Blue: hsl(234, 39%, 85%)
+  - Light Grayish Blue (hover): hsl(236, 33%, 92%)
+  - Dark Grayish Blue: hsl(234, 11%, 52%)
+  - Very Dark Grayish Blue: hsl(233, 14%, 35%)
+  - Very Dark Grayish Blue: hsl(237, 14%, 26%) */
+}
